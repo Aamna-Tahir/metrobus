@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MetrobusService</string>
+    <string name="phone">Phone number*</string>
+    <string name="pwdField">Password*</string>
+    <string name="forgotPass">Forgot Password</string>
+    <string name="signBtn">Sign in</string>
+    <string name="register">Not Registered Yet? Sign up</string>
 </resources>
