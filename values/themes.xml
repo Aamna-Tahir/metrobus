@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SemesterProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryVariant">@color/red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/red</item>
+        <item name="colorSecondaryVariant">@color/red</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Dialoganimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
+
+    <style name="Theme.SemesterProject.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SemesterProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SemesterProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
