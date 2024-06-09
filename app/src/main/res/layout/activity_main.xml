@@ -31,6 +31,7 @@
             />
 
         <TextView
+            android:id="@+id/phnTxtView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
@@ -76,15 +77,17 @@
             android:layout_marginRight="15dp"
             android:autofillHints=""
             tools:ignore="LabelFor" />
+
         <TextView
+            android:id="@+id/forgotPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/forgotPass"
+            android:layout_gravity="end"
             android:layout_marginTop="15dp"
-            android:text="@string/forgotPass"
-            android:textSize="13sp"
             android:layout_marginEnd="15dp"
-            android:layout_gravity="end"/>
+            android:fontFamily="sans-serif-black"
+            android:text="@string/forgotPass"
+            android:textSize="13sp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

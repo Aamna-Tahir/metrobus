@@ -30,6 +30,8 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
     private EditText phnNoEdtTxt;
     private EditText passwd;
+    TextView forgotPassTxtView;
+    TextView test;
     private Button btn;
     boolean passVisible;
     private static final String COUNTRY_CODE = "+92 | ";
@@ -40,10 +42,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
-
-        phnNoEdtTxt = findViewById(R.id.phNo_field);
-        passwd = findViewById(R.id.pwd_field);
-        btn = findViewById(R.id.login_btn);
+        test=findViewById(R.id.phnTxtView);
+        phnNoEdtTxt = (EditText) findViewById(R.id.phNo_field);
+        passwd = (EditText) findViewById(R.id.pwd_field);
+        btn = (Button) findViewById(R.id.login_btn);
+        forgotPassTxtView=(TextView) findViewById(R.id.forgotPass);
+    //test feedback
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,FeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
+        //
+            forgotPassTxtView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize the TextView and set up the clickable link
         TextView textView = findViewById(R.id.signUpTxtView);

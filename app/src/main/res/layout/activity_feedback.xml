@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/gray"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".FeedbackActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="We'd love to hear from you! "
+        android:layout_marginTop="40dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="159dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:src="@drawable/fb"
+        tools:ignore="ContentDescription" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+
+        android:text="Your feedback helps us improve our service."
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Rate Our Service"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:fontFamily="serif"
+         />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RatingBar
+            android:id="@+id/rateBarStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:progressTint="@color/red"
+            android:progressBackgroundTint="@color/black" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/rateTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text="Very Dissatisfied"
+        android:fontFamily="serif"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter your feedback"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/fbBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="@color/red"
+        android:text="SEND FEEDBACK"
+        android:textSize="15sp"/>
+
+</LinearLayout>
