@@ -5,4 +5,12 @@
     <string name="forgotPass"><a>Forgot Password</a></string>
     <string name="signBtn">Sign in</string>
     <string name="register">Not Registered Yet? <a>Sign up</a></string>
+    <string name="signupField">SIGN UP</string>
+    <string name="fNameField">First Name*</string>
+    <string name="lNameField">Last Name*</string>
+    <string name="cnicField">CNIC</string>
+    <string name="contactField">Contact*</string>
+    <string name="emailField">Email*</string>
+    <string name="cnfrmPwdField">Confirm Password*</string>
+    <string name="signUpBtn">Sign Up</string>
 </resources>

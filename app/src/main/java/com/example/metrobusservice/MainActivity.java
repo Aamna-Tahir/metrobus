@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn;
     boolean passVisible;
     private static final String COUNTRY_CODE = "+92 | ";
+    private DatabaseManager dbManager;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -42,24 +43,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+        // Initialize the DatabaseManager
+        dbManager = new DatabaseManager(this);
+        dbManager.open();
+
         test=findViewById(R.id.phnTxtView);
-        phnNoEdtTxt = (EditText) findViewById(R.id.phNo_field);
-        passwd = (EditText) findViewById(R.id.pwd_field);
-        btn = (Button) findViewById(R.id.login_btn);
-        forgotPassTxtView=(TextView) findViewById(R.id.forgotPass);
-    //test feedback
+        phnNoEdtTxt = findViewById(R.id.phNo_field);
+        passwd = findViewById(R.id.pwd_field);
+        btn = findViewById(R.id.login_btn);
+        forgotPassTxtView = findViewById(R.id.forgotPass);
+
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,FeedbackActivity.class);
+                Intent intent = new Intent(MainActivity.this, DashboardArray.class);
                 startActivity(intent);
             }
         });
-        //
-            forgotPassTxtView.setOnClickListener(new View.OnClickListener() {
+
+        forgotPassTxtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,ForgotPasswordActivity.class);
+                Intent intent = new Intent(MainActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });
@@ -92,15 +98,12 @@ public class MainActivity extends AppCompatActivity {
         };
         spannableString.setSpan(clickableSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-
         int linkColor = getResources().getColor(R.color.black);
         ForegroundColorSpan colorSpan = new ForegroundColorSpan(linkColor);
         spannableString.setSpan(colorSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-
         StyleSpan boldSpan = new StyleSpan(android.graphics.Typeface.BOLD);
         spannableString.setSpan(boldSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
 
         textView.setText(spannableString);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
@@ -189,16 +192,22 @@ public class MainActivity extends AppCompatActivity {
                 boolean matchFound = matcher.matches(); // Use matches() instead of find() to check the entire string
 
                 if (matchFound) {
-                    if (passwordInput.equals("admin")) {
+                    if (dbManager.verifyUser(phoneNumber, passwordInput)) {
                         Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(MainActivity.this, "Incorrect password. Try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Incorrect phone number or password. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(MainActivity.this, "Invalid phone number. Please enter exactly 10 digits.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        dbManager.close();
     }
 }
